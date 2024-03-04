@@ -20,7 +20,7 @@ function App() {
               <>
                 <Header />
                 <Home />
-                <Footer />
+                {/* <Footer /> */}
               </>
             }
           />
@@ -30,7 +30,7 @@ function App() {
               <>
                 <Header />
                 <MovieDetail />
-                <Footer />
+                {/* <Footer /> */}
               </>
             }
           />
