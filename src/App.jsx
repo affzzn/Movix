@@ -24,8 +24,26 @@ function App() {
               </>
             }
           />
-          <Route path="/movie/:imdbID" element={<MovieDetail />} />
-          <Route path="*" element={<PageNotFound />} />
+          <Route
+            path="/movie/:imdbID"
+            element={
+              <>
+                <Header />
+                <MovieDetail />
+                <Footer />
+              </>
+            }
+          />
+
+          <Route
+            path="*"
+            element={
+              <>
+                <Header />
+                <PageNotFound />
+              </>
+            }
+          />
         </Routes>
       </BrowserRouter>
     </div>

@@ -5,11 +5,11 @@ import { APIKey } from "../../common/Api/MovieApiKey";
 import { useEffect } from "react";
 
 //
-import { useSelector, useDispatch } from "react-redux";
-import { addMovie } from "../../store/movies/movieSlice";
+import { useDispatch } from "react-redux";
+import { addMovie, cleanMovie } from "../../store/slices/movieSlice";
+import { addSeries, cleanSeries } from "../../store/slices/seriesSlice";
 
 function Home() {
-  const movies = useSelector((state) => state.movies.movies);
   const dispatch = useDispatch();
   const movieText = "Mission";
 
@@ -23,6 +23,28 @@ function Home() {
     };
 
     fetchMovies();
+
+    return () => {
+      dispatch(cleanMovie());
+    };
+  }, []);
+
+  const seriesText = "Friends";
+
+  useEffect(() => {
+    const fetchSeries = async () => {
+      const response = await MovieApi.get(
+        `?apikey=${APIKey}&s=${seriesText}&type=series`
+      ).catch((error) => console.log(error));
+      console.log(response);
+      dispatch(addSeries(response.data));
+    };
+
+    fetchSeries();
+
+    return () => {
+      dispatch(cleanSeries());
+    };
   }, []);
 
   return (

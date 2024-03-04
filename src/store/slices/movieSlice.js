@@ -24,6 +24,9 @@ const movieSlice = createSlice({
     reducers: {
         addMovie: ((state, action) => {
             state.movies = action.payload
+        }),
+        cleanMovie: ((state, action) => {
+            state.movies = {}
         })
     },
     // extraReducers: {
@@ -41,5 +44,5 @@ const movieSlice = createSlice({
 })
 
 
-export const {addMovie} = movieSlice.actions
+export const {addMovie, cleanMovie} = movieSlice.actions
 export default movieSlice.reducer
