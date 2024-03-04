@@ -7,6 +7,7 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
+    color: white;
 }
 
 
@@ -17,6 +18,12 @@
     text-transform: uppercase;
     letter-spacing: 1px;
     cursor: pointer;
+
+    a{
+        color: white;
+        text-decoration: none;
+    
+    }
 }
 
 .user-image, .user-image img{
