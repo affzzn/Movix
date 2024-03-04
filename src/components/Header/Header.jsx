@@ -1,14 +1,34 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 //
 import "./Header.scss";
+import { useDispatch } from "react-redux";
 
 function Header() {
+  const [term, setTerm] = useState("");
+  const dispatch = useDispatch();
+
+  const handleSubmit = (e) => {
+    event.preventDefault();
+  };
+
   return (
     <div className="header">
-      <Link to="/" className="home-link">
-        <div className="logo">Movix</div>
-      </Link>
+      <div className="logo">
+        <Link to="/">Movix</Link>
+      </div>
+      <div className="search-bar">
+        <form onSubmit={handleSubmit}>
+          <input
+            type="text"
+            placeholder="Search Movies & Shows"
+            onChange={(event) => setTerm(event.target.value)}
+          />
+          <button type="submit">
+            <i className="fa fa-search"></i>
+          </button>
+        </form>
+      </div>
 
       <div className="user-image">
         <img

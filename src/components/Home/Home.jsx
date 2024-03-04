@@ -29,7 +29,7 @@ function Home() {
     };
   }, []);
 
-  const seriesText = "Friends";
+  const seriesText = "Fast";
 
   useEffect(() => {
     const fetchSeries = async () => {
