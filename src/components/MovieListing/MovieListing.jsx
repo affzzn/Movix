@@ -5,7 +5,13 @@ import { useSelector } from "react-redux";
 //
 import "./MovieListing.scss";
 
+//
+import Slider from "react-slick";
+import { Settings } from "../../common/settings";
+
 function MovieListing() {
+  // slider
+
   const movies = useSelector((state) => state.movies.movies);
   const series = useSelector((state) => state.series.series);
   console.log(movies);
@@ -35,11 +41,15 @@ function MovieListing() {
     <div className="movie-wrapper">
       <div className="movie-list">
         <h2>Movies</h2>
-        <div className="movie-container">{renderMovies}</div>
+        <div className="movie-container">
+          <Slider {...Settings}>{renderMovies}</Slider>
+        </div>
       </div>
       <div className="series-list">
         <h2>Series</h2>
-        <div className="movie-container">{renderSeries}</div>
+        <div className="movie-container">
+          <Slider {...Settings}>{renderSeries}</Slider>
+        </div>
       </div>
     </div>
   );
